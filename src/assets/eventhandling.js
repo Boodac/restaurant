@@ -6,6 +6,7 @@ export const buttons = {
 
 export const hook = (container, button, func) => {
     button.addEventListener("click", e => {
+        container.textContent = "";
         func(container);
     })
 }
