@@ -1,7 +1,7 @@
 const title = document.createElement("h1");
-title.textContent = "Contact Us";
+title.textContent = "Menu";
 const copy = document.createElement("p");
-copy.textContent = "Do Stuff";
+copy.textContent = "Grilled Cheese $5";
 
 const initMenu = (container) => {
     container.appendChild(title);
