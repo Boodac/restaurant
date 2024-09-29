@@ -7,10 +7,12 @@ img.src = GrilledCheese;
 const copy = document.createElement("p");
 copy.textContent = "The restaurant is wonderful.";
 
-export default function init(container) {
+const initHome = (container) => {
     container.appendChild(title);
     container.appendChild(img);
     container.appendChild(copy);
 }
+
+export default initHome;
 
 export { title as tagline, img as grilledCheese, copy };
