@@ -8,6 +8,6 @@ const dumpContent = () => {
     content.textContent = "";
 }
 
-initHome(content);
-
 hook(content, buttons.home, initHome);
+
+initHome(content);
