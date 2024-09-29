@@ -1,4 +1,11 @@
 import "./assets/styles.css";
 import initHome from "./assets/home.js";
 
-initHome();
+const content = document.querySelector("#content");
+
+
+const dumpContent = () => {
+    content.textContent = "";
+}
+
+initHome(content);
