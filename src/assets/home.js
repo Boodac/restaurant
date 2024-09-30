@@ -5,6 +5,7 @@ const title = document.createElement("h1");
 title.textContent = "Take It Cheesy";
 const img = document.createElement("img");
 img.src = GrilledCheese;
+img.classList.add("splash");
 const copy = document.createElement("p");
 copy.textContent = "The restaurant is wonderful.";
 
