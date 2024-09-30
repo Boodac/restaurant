@@ -28,7 +28,9 @@ the menu is iterable with menu[menu.structure[index]];
 const menu = {
     specials: {
         title: "Specials",
-        header: "",
+        get header() {
+            return `Specials are available from ${hours.specials.open} to ${hours.specials.close}`
+        },
         options: [
             {
                 name: "Breakfast Special",
@@ -46,10 +48,12 @@ const menu = {
                 description: "Our quarter pound (1/4 lbs.) all-beef patty, cooked to order, and topped with American cheese - twice! Comes with fries and your choice of beverage"
             }
         ],
-        footer: ""
+        get footer() {
+            return "No substitutions."
+        }
     },
     appetizers: {
-        title: "Starters Sides n' More",
+        title: "Starters, Sides n' More",
         header: "",
         options: [
             {
@@ -90,14 +94,18 @@ const menu = {
             {
                 name: "Cup of Soup or House Salad",
                 price: "3.49",
-                description: "Ask your server about our fresh, daily soup options and our home-made dressings"
+                get description() {
+                    return `Soups available: ${menu.meta.soups}. Dressings: ${menu.meta.dressings}. Be sure to ask your server about seasonal options`
+                }
             }
         ],
-        footer: "",
+        get footer() {
+            return `Sauces Available: ${menu.meta.sauces}`;
+        },
     },
     breakfast: {
         title: "Breakfast",
-        header: "",
+        header: "Available all day",
         options: [
             {
                 name: "Build-Your-Own Omelette",
@@ -125,11 +133,13 @@ const menu = {
                 description: "A half- or full-order of our country style buttermilk biscuits topped with our homemade sausage gravy"
             }
         ],
-        footer: "",
+        get footer() {
+            return `${menu.meta.warnings.raw} ${menu.meta.warnings.server}`;
+        },
     },
     lunch: {
         title: "Lunch",
-        header: "",
+        header: "Available all day",
         options: [
             {
                 name: "BLT Sandwich",
@@ -156,7 +166,7 @@ const menu = {
     },
     entrees: {
         title: "Dinners",
-        header: "Unless otherwise stated, dinners come with your choice of 2 sides and a dinner roll.",
+        header: "Available after noon. Unless otherwise noted, dinners come with your choice of 2 sides and a dinner roll.",
         options: [
             {
                 name: "Fish n' Chips",
@@ -174,11 +184,13 @@ const menu = {
                 description: "Our slow-simmered marinara meets the finest boiled wheat."
             }
         ],
-        footer: "",
+        get footer() {
+            return `Sides Available: ${menu.meta.sides}`;
+        },
     },
     kids: {
         title: "Little Options",
-        header: "",
+        header: "All kid's meals come with a child-sized beverage",
         options: [
             {
                 name: "Just a Lil' Breakfast",
@@ -203,7 +215,7 @@ const menu = {
             {
                 name: "Hot Dog",
                 price: "5.49",
-                description: "And fries"
+                description: "With fries, applesauce, and mandarin orange slices"
             },
             {
                 name: "Tender Nuggies",
@@ -230,7 +242,7 @@ const menu = {
             {
                 name: "Slice of Pie or Cake",
                 price: "4.99",
-                description: "Apple pie or chocolate cake. Ask your server about our seasonal options"
+                description: "Apple pie or chocolate cake."
             },
             {
                 name: "Rice Pudding",
@@ -238,11 +250,11 @@ const menu = {
                 description: "Staff pick! Arroz con leche inspired, topped with a cinnamon crumble."
             }
         ],
-        footer: "",
+        footer: "Ask your server about our seasonal options!",
     }, 
     beverages: {
         title: "Beverages",
-        header: "Free Refills!",
+        header: "",
         options: [
             {
                 name: "24oz Soft Drink",
@@ -265,7 +277,7 @@ const menu = {
                 description: "Sourced from only the finest of municipal aquifers."
             }
         ],
-        footer: "",
+        footer: "Free refills on soda, coffee and tea",
     },
     meta: {
         title: "Menu",
@@ -369,8 +381,8 @@ const hours = {
         return joinList(this.holidayList);
     },
     specials: {
-        open: 1000,
-        close: 1600,
+        open: "7am",
+        close: "4pm",
     },
 };
 

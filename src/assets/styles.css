@@ -48,6 +48,15 @@ h1 {
     margin: 0.25rem;
 }
 
+.section-footer, .section-header {
+    text-align: center;
+    margin: 0.5rem;
+    font-size: 0.9em;
+    font-weight: 300;
+    flex: 1;
+    padding: 0 10%;
+}
+
 .menu-option {
     padding-left: 1rem;
     display: grid;
@@ -55,6 +64,8 @@ h1 {
         "name blank price" 
         "description description description";
     grid-template-columns: max-content 1fr max-content;
+    border-bottom: 1px solid #cecece;
+    margin-top: 1rem;
 }
 
 .item-price {
@@ -70,10 +81,8 @@ h1 {
 
 .item-description {
     grid-area: description;
-    border-bottom: 1px solid #aeaeae;
     margin-bottom: 1rem;
     padding-left: 0.5rem;
-    max-width: 80ch;
     padding-right: 10%;
     padding-bottom: 0.5rem;
 }
