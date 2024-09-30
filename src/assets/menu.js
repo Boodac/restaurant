@@ -32,6 +32,7 @@ function createOption(optionObject) {
     description.classList.add("item-description");
     description.textContent = optionObject.description;
     const card = document.createElement("div");
+    card.classList.add("menu-option");
     card.appendChild(name);
     card.appendChild(price);
     card.appendChild(description);
