@@ -1,4 +1,5 @@
 import GrilledCheese from "./grilled-cheese.jpeg";
+import { hours, address, phone } from "./config.js";
 
 const title = document.createElement("h1");
 title.textContent = "Take It Cheesy";
