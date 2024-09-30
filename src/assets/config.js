@@ -1,70 +1,316 @@
+// helper method for handling properties that are lists of strings
+function joinList(list) {
+    return list.map((element) => { 
+        return element.split(" ").map((word) => {
+            return word.charAt(0).toUpperCase()+word.substring(1);
+        }).join(" ");
+    }).join(", ");
+}
+
+/* Menu Object Structure
+sectionName: {
+    header: "",
+    options: [
+        {
+            name: "",
+            price: "",
+            description: "",
+        },
+    ],
+  footer: "",
+}
+
+iterate over the sections with menu[menu.structure[index]]
+
+*/
+
 const menu = {
     specials: {
-        hours: {
-            start: 1000,
-            end: 1600,
-        },
+        title: "Specials",
+        header: "",
+        options: [
+            {
+                name: "Breakfast Special",
+                price: "7.99",
+                description: "Two eggs, hash browns. Choice of: bacon, sausage (links or patty), or ham steak"
+            },
+            {
+                name: "The Real Breakfast Special",
+                price: "9.99",
+                description: "Three eggs, bacon, sausage (two links or one patty), ham steak, hash browns, and toast. Free coffee!"
+            },
+            {
+                name: "Cheeseburger Combo",
+                price: "9.99",
+                description: "Our quarter pound (1/4 lbs.) all-beef patty, cooked to order, and topped with American cheese - twice! Comes with fries and your choice of beverage"
+            }
+        ],
+        footer: ""
     },
-    appetizers: [
-        {
-            name: "Cheese Sticks",
-            price: "5.99",
-            description: "Logs of mozarella, breaded in-house, and deep fried. Served with choice of dipping sauce."
+    appetizers: {
+        title: "Starters Sides n' More",
+        header: "",
+        options: [
+            {
+                name: "Cheese Sticks",
+                price: "6.49",
+                description: "Logs of mozarella, breaded in-house, and deep fried. Served with choice of dipping sauce"
+            },
+            {
+                name: "Onion Rings",
+                price: "4.49",
+                description: "Thick slices of sweet Vidalia onions in our tempura-inspired beer batter, served with our zesty horseradish sauce"
+            },
+            {
+                name: "Hummus",
+                price: "5.99",
+                description: "Garnished roasted garlic and mint. Served with bakery-fresh pita"
+            },
+            {
+                name: "Wing-A-Dings",
+                price: "7.99",
+                description: "Half-pound (1/2 lb.) boneless or bone-in wings, served with celery sticks. Your choice of sauce, wet or dry"
+            },
+            {
+                name: "Super Nachos",
+                price: "12.99",
+                description: "A mountain of tortilla chips, seasoned ground beef, pickled jalapenos, black olives, pico de gallo, sour cream, and cheese. (Serves 2)"
+            },
+            {
+                name: "Loaded Fries",
+                price: "6.99",
+                description: "Our famous french fries loaded with ground beef, chili, onions, cheese, and bacon"
+            },
+            {
+                name: "Potato Fries or Tots",
+                price: "3.99",
+                description: "A serving of our famous french fries (or tots!)"
+            },
+            {
+                name: "Cup of Soup or House Salad",
+                price: "3.49",
+                description: "Ask your server about our fresh, daily soup options and our home-made dressings"
+            }
+        ],
+        footer: "",
+    },
+    breakfast: {
+        title: "Breakfast",
+        header: "",
+        options: [
+            {
+                name: "Build-Your-Own Omelette",
+                price: "7.99",
+                description: "A three-egg omelette with cheese, served with hash browns and toast. Add any meat for 0.99 and any vegetable for 0.49. Substitute egg-whites for 1.49"
+            },
+            {
+                name: "Off The Griddle",
+                price: "7.49",
+                description: "Your choice of extra-large belgian waffle (1), hot cakes (3), or french toast (2). Add your choice of toppings for 1.99, add two eggs for 2.49"
+            },
+            {
+                name: "Breakfast Meat",
+                price: "4.49",
+                description: "Choose between pork sausage links or patties, bacon, grilled ham steak, or turkey patties"
+            },
+            {
+                name: "Corned Beef Hash",
+                price: "6.49",
+                description: "Fresh chopped, never canned"
+            },
+            {
+                name: "Biscuits n' Gravy",
+                price: "4.99 / 7.49",
+                description: "A half- or full-order of our country style buttermilk biscuits topped with our homemade sausage gravy"
+            }
+        ],
+        footer: "",
+    },
+    lunch: {
+        title: "Lunch",
+        header: "",
+        options: [
+            {
+                name: "BLT Sandwich",
+                price: "6.99",
+                description: "Bacon, Lettuce, Tomato and Mayonnaise on your choice of toast."
+            },
+            {
+                name: "Patty Melt",
+                price: "",
+                description: ""
+            },
+            {
+                name: "Chicken Pita Wrap",
+                price: "",
+                description: ""
+            },
+            {
+                name: "Greek Salad",
+                price: "",
+                description: ""
+            },
+        ],
+        footer: "",
+    },
+    entrees: {
+        title: "Dinners",
+        header: "Unless otherwise stated, dinners come with your choice of 2 sides and a dinner roll.",
+        options: [
+            {
+                name: "Fish n' Chips",
+                price: "9.39",
+                description: "Our famous tempura-inspired beer batter covering three pieces of fried Atlantic cod. No sides; served with fries and tartar sauce",
+            },
+            {
+                name: "Chicken Monterrey",
+                price: "12.99",
+                description: "Grilled chicken, covered in our monterrey jack sauce and bacon."
+            },
+            {
+                name: "Spaghetti al Foodstuff",
+                price: "10.49",
+                description: "Our slow-simmered marinara meets the finest boiled wheat."
+            }
+        ],
+        footer: "",
+    },
+    kids: {
+        title: "Little Options",
+        header: "",
+        options: [
+            {
+                name: "Just a Lil' Breakfast",
+                price: "5.99",
+                description: "With a sausage or bacon, and some potatoes"
+            },
+            {
+                name: "Pancake or French Toast",
+                price: "5.99",
+                description: "With a sausage or bacon"
+            },
+            {
+                name: "Grilled Cheese",
+                price: "4.99",
+                description: "Served with fries and a pickle"
+            },
+            {
+                name: "Cheeseburger & Fries",
+                price: "6.99",
+                description: "A little less burger, a little less fries"
+            },
+            {
+                name: "Hot Dog",
+                price: "5.49",
+                description: "And fries"
+            },
+            {
+                name: "Tender Nuggies",
+                price: "7.49",
+                description: "Real chicken chunks, fries, and their choice of dipping sauce."
+            },
+            {
+                name: "Spaghetti",
+                price: "6.99",
+                description: "Served with a slice of texas toast."
+            }
+        ],
+        footer: ""
+    },
+    dessert: {
+        title: "Dessert",
+        header: "",
+        options: [
+            {
+                name: "Sundae",
+                price: "4.49",
+                description: "Hot Fudge, Caramel, or Strawberry"
+            },
+            {
+                name: "Slice of Pie or Cake",
+                price: "4.99",
+                description: "Apple pie or chocolate cake. Ask your server about our seasonal options"
+            },
+            {
+                name: "Rice Pudding",
+                price: "3.99",
+                description: "Staff pick! Arroz con leche inspired, topped with a cinnamon crumble."
+            }
+        ],
+        footer: "",
+    }, 
+    beverages: {
+        title: "Beverages",
+        header: "Free Refills!",
+        options: [
+            {
+                name: "24oz Soft Drink",
+                price: "2.99",
+                description: "We exclusively serve Tab products."
+            },
+            {
+                name: "Coffee or Hot Tea",
+                price: "2.49",
+                description: "Decaf available upon request"
+            },
+            {
+                name: "Milk or Chocolate Milk",
+                price: "2.49",
+                description: "16oz, 2%"
+            },
+            {
+                name: "Bottled Water",
+                price: "3.99",
+                description: "Sourced from only the finest of municipal aquifers."
+            }
+        ],
+        footer: "",
+    },
+    meta: {
+        title: "Menu",
+        warnings: {
+            raw: "Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illnesses.",
+            allergen: "Be advised that food prepared here may contain these ingredients: milk, eggs, wheat, soy, peanuts, tree nuts, fish, and shellfish.",
+            nutrition: "Regarding the nutritional value of these items, written information is available on request.",
+            server: "Please ask your server about any questions or concerns.",
+            gluten: "This is not a gluten-free environment."
         },
-        {
-            name: "Onion Rings",
-            price: "5.99",
-            description: "Thick slices of sweet Vidalia onions in our tempura-inspired beer batter, served with our zesty horseradish sauce."
+        finePrint: "20% gratuity will be added for parties of 7 or more. Menu photos are for illustrative purposes only; actual platters may appear different.",
+        sideList: [
+            "mixed vegetables",
+            "cole slaw",
+            "baked potato",
+            "baked beans",
+            "french fries",
+            "onion rings",
+            "house salad",
+            "cup of soup",
+        ],
+        get sides() { 
+            return joinList(this.sideList);
         },
-        {
-            name: "Hummus",
-            price: "6.99",
-            description: "Garnished roasted garlic and mint. Served with bakery-fresh pita."
+        dressingList: [
+            "ranch",
+            "italian",
+            "thousand island",
+            "caesar",
+            "blue cheese"
+        ],
+        get dressings() {
+            return joinList(this.dressingList);
         },
-        {
-            name: "Wing-Dings",
-            price: "8.99",
-            description: "Eight (8) boneless or bone-in wings, served with celery sticks. Your choice of sauce, wet or dry."
-        },
-        {
-            name: "Super Nachos",
-            price: "12.99",
-            description: "A mountain of tortilla chips, seasoned ground beef, jalapeno, black olives, tomato, onion, salsa, sour cream, and cheese. (Serves 2.)"
-        },
-        {
-            name: "Loaded Fries",
-            price: "7.99",
-            description: "Our famous french fries loaded with ground beef, chili, onions, cheese, and bacon."
-        },
-        {
-            name: "Fries",
-            price: "4.99",
-            description: "A serving of our famous french fries (or tots!)"
-        },
-        {
-            name: "Bowl of Soup or House Salad",
-            price: "3.99",
-            description: "Ask your server about our fresh, daily soup options and our home-made dressings."
+        soupList: [
+            "broccoli cheddar",
+            "chicken noodle"
+        ],
+        get soups() {
+            return joinList(this.soupList);
         }
-    ],
-    breakfast: [
-
-    ],
-    lunch: [
-
-    ],
-    entrees: [
-
-    ],
-    dessert: [
-
-    ],
-    kids: [
-
-    ]
+    },
+    get structure() {
+        return Object.getOwnPropertyNames(this).slice(0,-2);
+    }
 };
-
-const menuStructure = Object.getOwnPropertyNames(menu);
 
 const phone = {
     tollfree: "18005551234",
@@ -106,7 +352,14 @@ const hours = {
         open: 600,
         close: 1700,
     },
-    holidays: ["New Year's Day", "Christmas", "Christmas Eve", "Thanksgiving", "Easter Sunday", "Memorial Day", "Labor Day"],
+    holidayList: ["New Year's Day", "Christmas", "Christmas Eve", "Thanksgiving", "Easter Sunday", "Memorial Day", "Labor Day"],
+    get holidays() {
+        return joinList(this.holidayList);
+    },
+    specials: {
+        open: 1000,
+        close: 1600,
+    },
 };
 
 const address = {
@@ -118,4 +371,4 @@ const address = {
     zip: "12345-1234"
 };
 
-export { menu, menuStructure, address, hours, email, phone };
+export { menu, address, hours, email, phone };
