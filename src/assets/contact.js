@@ -9,5 +9,3 @@ const initContact = (container) => {
 }
 
 export default initContact;
-
-export { title as tagline, copy };
