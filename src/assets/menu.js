@@ -15,6 +15,7 @@ function createSection(sectionObject) {
     section.classList.add("menu-section");
     const sectionHeader = document.createElement("h2");
     sectionHeader.classList.add("section-title");
+    sectionHeader.textContent = sectionObject.title;
     sectionObject.options.forEach(item => {
         section.appendChild(createOption(item));
     });

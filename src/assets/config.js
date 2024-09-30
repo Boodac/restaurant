@@ -9,6 +9,7 @@ function joinList(list) {
 
 /* Menu Object Structure
 sectionName: {
+    title: "",
     header: "",
     options: [
         {
