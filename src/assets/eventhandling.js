@@ -9,7 +9,7 @@ const dump = (container) => {
 }
 
 const hook = (container, button, func) => {
-    button.addEventListener("click", e => {
+    button.addEventListener("click", (event) => {
         dump(container);
         func(container);
     })

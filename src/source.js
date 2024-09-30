@@ -6,8 +6,8 @@ import { default as hook, buttons } from "./assets/eventhandling.js";
 
 const content = document.querySelector("#content");
 
-initHome(content);
-
 hook(content, buttons.home, initHome);
 hook(content, buttons.contact, initContact);
 hook(content, buttons.menu, initMenu);
+
+initHome(content);
