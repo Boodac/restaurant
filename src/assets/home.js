@@ -15,5 +15,3 @@ const initHome = (container) => {
 }
 
 export default initHome;
-
-export { title as tagline, img as grilledCheese, copy };
