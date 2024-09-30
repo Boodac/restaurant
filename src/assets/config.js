@@ -276,7 +276,7 @@ const menu = {
             server: "Please ask your server about any questions or concerns.",
             gluten: "This is not a gluten-free establishment."
         },
-        finePrint: "20% gratuity will be added for parties of 7 or more. Menu photos are for illustrative purposes only; actual platters may appear different.",
+        finePrint: "20% gratuity will be added for parties of 7 or more. All photos are for illustrative purposes only; reality may appear different.",
         sideList: [
             "mixed vegetables",
             "cole slaw",

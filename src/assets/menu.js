@@ -1,14 +1,32 @@
 import { menu } from "./config.js";
 
-const title = document.createElement("h1");
-title.textContent = menu.meta.title;
-
 const initMenu = (container) => {
     container.appendChild(title);
     menu.structure.forEach(section => {
         container.appendChild(createSection(menu[section]));
     });
+    container.appendChild(fineprint);
+    container.appendChild(warnings);
 }
+
+const title = document.createElement("h1");
+title.textContent = menu.meta.title;
+
+const warnings = (function(){
+    let statement = document.createElement("p");
+    for(const [descriptor, warning] of Object.entries(menu.meta.warnings)) {
+        statement.textContent += warning + " ";
+    }
+    statement.classList.add("fine-print");
+    return statement;
+})();
+
+const fineprint = (function() {
+    let statement = document.createElement("p");
+    statement.classList.add("fine-print");
+    statement.textContent += menu.meta.finePrint;
+    return statement;
+})();
 
 function createSection(sectionObject) {
     const menuSection = document.createElement("section");
