@@ -138,18 +138,18 @@ const menu = {
             },
             {
                 name: "Patty Melt",
-                price: "",
-                description: ""
+                price: "8.99",
+                description: "A hamburger patty grilled between your choice of toast, with sauteed onions."
             },
             {
                 name: "Chicken Pita Wrap",
-                price: "",
-                description: ""
+                price: "7.99",
+                description: "Chicken fingers, swiss and American cheese, mayonnaise, lettuce and tomato."
             },
             {
                 name: "Greek Salad",
-                price: "",
-                description: ""
+                price: "9.99",
+                description: "Tomato, cucumber, feta, onion, pepperoncini, pickled beets and olives. Served with homemade greek dressing"
             },
         ],
         footer: "",
@@ -295,7 +295,8 @@ const menu = {
             "italian",
             "thousand island",
             "caesar",
-            "blue cheese"
+            "blue cheese",
+            "greek"
         ],
         get dressings() {
             return joinList(this.dressingList);
