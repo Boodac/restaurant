@@ -256,8 +256,8 @@ const menu = {
             },
             {
                 name: "Milk or Chocolate Milk",
-                price: "2.49",
-                description: "16oz, 2%"
+                price: "2.49 / 2.99",
+                description: "2% only. Available in 16oz and 24oz"
             },
             {
                 name: "Bottled Water",
