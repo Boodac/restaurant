@@ -20,7 +20,7 @@ sectionName: {
   footer: "",
 }
 
-iterate over the sections with menu[menu.structure[index]]
+the menu is iterable with menu[menu.structure[index]];
 
 */
 
