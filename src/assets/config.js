@@ -274,7 +274,7 @@ const menu = {
             allergen: "Be advised that food prepared here may contain these ingredients: milk, eggs, wheat, soy, peanuts, tree nuts, fish, and shellfish.",
             nutrition: "Regarding the nutritional value of these items, written information is available on request.",
             server: "Please ask your server about any questions or concerns.",
-            gluten: "This is not a gluten-free environment."
+            gluten: "This is not a gluten-free establishment."
         },
         finePrint: "20% gratuity will be added for parties of 7 or more. Menu photos are for illustrative purposes only; actual platters may appear different.",
         sideList: [
