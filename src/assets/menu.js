@@ -31,13 +31,34 @@ const fineprint = (function() {
 function createSection(sectionObject) {
     const menuSection = document.createElement("section");
     menuSection.classList.add("menu-section");
-    const sectionHeader = document.createElement("h2");
-    sectionHeader.classList.add("section-header");
-    sectionHeader.textContent = sectionObject.title;
-    menuSection.appendChild(sectionHeader);
-    sectionObject.options.forEach(item => {
-        menuSection.appendChild(createOption(item));
-    });
+    
+    if(sectionObject.title) {
+        const sectionTitle = document.createElement("h2");
+        sectionTitle.classList.add("section-title");
+        sectionTitle.textContent = sectionObject.title;
+        menuSection.appendChild(sectionTitle);
+    }
+
+    if(sectionObject.header) {
+        const sectionHeader = document.createElement("p");
+        sectionHeader.classList.add("section-header");
+        sectionHeader.textContent = sectionObject.header;
+        menuSection.appendChild(sectionHeader);
+    }
+
+    if(sectionObject.options) {
+        sectionObject.options.forEach(item => {
+            menuSection.appendChild(createOption(item));
+        });
+    }
+
+    if(sectionObject.footer) {
+        const sectionFooter = document.createElement("p");
+        sectionFooter.classList.add("section-footer");
+        sectionFooter.textContent = sectionObject.footer;
+        menuSection.appendChild(sectionFooter);
+    }
+
     return menuSection;
 }
 
