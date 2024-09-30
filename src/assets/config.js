@@ -306,6 +306,16 @@ const menu = {
         ],
         get soups() {
             return joinList(this.soupList);
+        },
+        sauceList: [
+            "ranch",
+            "barbecue",
+            "honey mustard",
+            "sweet n sour",
+            "ketchup"
+        ],
+        get sauces() {
+            return joinList(this.sauceList);
         }
     },
     get structure() {
@@ -353,7 +363,7 @@ const hours = {
         open: 600,
         close: 1700,
     },
-    holidayList: ["New Year's Day", "Christmas", "Christmas Eve", "Thanksgiving", "Easter Sunday", "Memorial Day", "Labor Day"],
+    holidayList: ["new year's day", "christmas", "christmas eve", "thanksgiving", "easter sunday", "memorial day", "labor day"],
     get holidays() {
         return joinList(this.holidayList);
     },
