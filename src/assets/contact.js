@@ -93,7 +93,7 @@ const contactForm = (function() {
     const items = document.createElement("datalist");
     items.id = "items";
 
-    menu.meta.items.forEach(item => {
+    menu.meta.itemList.forEach(item => {
         const option = document.createElement("option");
         option.value = item;
         items.appendChild(option);

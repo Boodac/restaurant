@@ -223,7 +223,7 @@ const menu = {
                 description: "Real chicken chunks, fries, and their choice of dipping sauce."
             },
             {
-                name: "Spaghetti",
+                name: "Spaghetti, but cut in half",
                 price: "6.99",
                 description: "Served with a slice of texas toast."
             }
@@ -330,7 +330,7 @@ const menu = {
         get sauces() {
             return joinList(this.sauceList);
         },
-        get items() { // gets an array of every item name on the menu
+        get itemList() { // gets an array of every item name on the menu
             let sectionArray = [];
             menu.structure.forEach(section => {
                 sectionArray.push(...menu[section].options);
@@ -341,6 +341,9 @@ const menu = {
             });
             return itemArray;
         },
+        get items() {
+            return joinList(this.itemList);
+        }
     },
     get structure() { // menu.structure is an array of all this.property keys that AREN'T the meta property or the structure array itself.
         return Object.getOwnPropertyNames(this).slice(0,-2);
