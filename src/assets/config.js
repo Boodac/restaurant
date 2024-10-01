@@ -349,30 +349,37 @@ const email = {
 
 const hours = {
     mon: {
+        day: "Monday",
         open: 700,
         close: 2100,
     },
     tue: {
+        day: "Tuesday",
         open: 700,
         close: 2100,
     },
     wed: {
+        day: "Wednesday",
         open: 700,
         close: 2100,
     },
     thu: {
+        day: "Thursday",
         open: 700,
         close: 2100,
     },
     fri: {
+        day: "Friday",
         open: 700,
         close: 2300,
     },
     sat: {
+        day: "Saturday",
         open: 600,
         close: 2300,
     },
     sun: {
+        day: "Sunday",
         open: 600,
         close: 1700,
     },
@@ -387,12 +394,19 @@ const hours = {
 };
 
 const address = {
-    name: "Pesto's Besto",
+    name: "Take It Cheesy",
     number: "123",
     street: "E Main Blvd",
     city: "Hometown",
     state: "DN",
-    zip: "12345-1234"
+    zip: "12345-1234",
+    get full() {
+        return [
+            `${this.name}`,
+            `${this.number} ${this.street}`,
+            `${this.city}, ${this.state} ${this.zip}`
+        ];
+    }
 };
 
 export { menu, address, hours, email, phone };
