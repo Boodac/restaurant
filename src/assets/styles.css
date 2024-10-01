@@ -18,8 +18,7 @@ p {
 }
 
 .container {
-    max-width: 1000px;
-    position: relative;
+    max-width: min(100%, 1000px);
 }
 
 button {
@@ -35,8 +34,8 @@ button {
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 h1 {

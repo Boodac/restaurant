@@ -1,5 +1,5 @@
 import GrilledCheese from "./grilled-cheese.jpeg";
-import { hours, address, phone } from "./config.js";
+import { hours, address } from "./config.js";
 
 const initHome = (container) => {
     container.appendChild(title);
