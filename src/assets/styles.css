@@ -19,6 +19,7 @@ p {
 
 .container {
     max-width: min(100%, 1000px);
+    padding: 0 1rem;
 }
 
 button {
@@ -129,4 +130,29 @@ h1 {
     color: #002033;
     margin-bottom: 2rem;
     text-shadow: 0 1px #684d62;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #ddfcda;
+    padding: 1rem 2rem;
+    gap: 1rem;
+}
+
+.form-container input, .form-container textarea {
+    margin-left: 1rem;
+    max-width: 90%;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.3) inset;
+    outline: 1px solid #87c078;
+    font-size: 1em;
+}
+
+.form-container label {
+    font-size: 1rem;
+    margin-left: 0.5rem;
+    max-width: 40ch;
 }

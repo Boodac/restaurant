@@ -1,4 +1,4 @@
-import { email, phone, address } from "./config.js";
+import { email, phone, address, menu } from "./config.js";
 
 const initContact = (container) => {
     container.appendChild(title);
@@ -71,30 +71,55 @@ const contactForm = (function() {
     
     const nameLabel = document.createElement("label");
     nameLabel.textContent = 'Name:';
+    nameLabel.setAttribute("for", "name");
     const nameInput = document.createElement("input");
     nameInput.value = "Name";
+    nameInput.id = "name";
     
     const phoneLabel = document.createElement("label");
     phoneLabel.textContent = "Phone";
+    phoneLabel.setAttribute("for", "phone");
     const phoneInput = document.createElement("input");
+    phoneInput.type = "tel";
+    phoneInput.id = "phone";
     phoneInput.value = "+1";
     
     const itemLabel = document.createElement("label");
     itemLabel.textContent = "If this is related to a specific item you ordered, enter that here:";
+    itemLabel.setAttribute("for", "item");
     const itemInput = document.createElement("input");
+    itemInput.id = "item";
+    itemInput.setAttribute("list", "items");
+    const items = document.createElement("datalist");
+    items.id = "items";
+
+    menu.meta.items.forEach(item => {
+        const option = document.createElement("option");
+        option.value = item;
+        items.appendChild(option);
+    });
     
     const commentLabel = document.createElement("label");
     commentLabel.textContent = "Comment:";
+    commentLabel.setAttribute("for", "comment");
     const textArea = document.createElement("textarea");
+    textArea.id = "comment";
 
     const dateLabel = document.createElement("label");
     dateLabel.textContent = "Date of Service:";
+    dateLabel.setAttribute("for", "date");
     const date = document.createElement("input");
+    date.type = "date";
+    date.id = "date";
 
     const button = document.createElement("button");
-    button.textContent = "Submit";
+    button.type = "submit";
+    button.textContent = "Submit Your Comment";
+    button.addEventListener("click", e=> {
+        e.preventDefault();
+    });
 
-    ;[header, nameLabel, nameInput, phoneLabel, phoneInput, itemLabel, itemInput, commentLabel, textArea, dateLabel, date, button].forEach(element => {
+    ;[header, nameLabel, nameInput, phoneLabel, phoneInput, itemLabel, itemInput, items, commentLabel, textArea, dateLabel, date, button].forEach(element => {
         section.appendChild(element);
     });
 
