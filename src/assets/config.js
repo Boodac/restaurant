@@ -7,7 +7,7 @@ function joinList(list) {
     }).join(", ");
 }
 
-/* Menu Object Structure
+/* Menu Section Schema
 sectionName: {
     title: "",
     header: "",
@@ -54,7 +54,9 @@ const menu = {
     },
     appetizers: {
         title: "Starters, Sides n' More",
-        header: "",
+        get header() {
+            return `Sauces Available: ${menu.meta.sauces}`;
+        },
         options: [
             {
                 name: "Cheese Sticks",
@@ -99,9 +101,7 @@ const menu = {
                 }
             }
         ],
-        get footer() {
-            return `Sauces Available: ${menu.meta.sauces}`;
-        },
+        footer: "",
     },
     breakfast: {
         title: "Breakfast",
@@ -331,14 +331,14 @@ const menu = {
             return joinList(this.sauceList);
         }
     },
-    get structure() {
+    get structure() { // menu.structure is an array of all this.property keys that AREN'T the meta property or the structure array itself.
         return Object.getOwnPropertyNames(this).slice(0,-2);
     }
 };
 
 const phone = {
-    tollfree: "18005551234",
-    local: "15555551234"
+    tollfree: "(800) 555-1234",
+    local: "(555) 555-1234"
 };
 
 const email = {
@@ -347,7 +347,7 @@ const email = {
     owner: "owner@this.cafe",
 };
 
-const hours = {
+const hours = { // keys of length===3 are days
     mon: {
         day: "Monday",
         open: 700,
