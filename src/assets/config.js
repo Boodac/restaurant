@@ -329,7 +329,18 @@ const menu = {
         ],
         get sauces() {
             return joinList(this.sauceList);
-        }
+        },
+        get items() { // gets an array of every item name on the menu
+            let sectionArray = [];
+            menu.structure.forEach(section => {
+                sectionArray.push(...menu[section].options);
+            });
+            let itemArray = [];
+            sectionArray.forEach(item => {
+                itemArray.push(item.name);
+            });
+            return itemArray;
+        },
     },
     get structure() { // menu.structure is an array of all this.property keys that AREN'T the meta property or the structure array itself.
         return Object.getOwnPropertyNames(this).slice(0,-2);
